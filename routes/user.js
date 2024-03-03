@@ -13,11 +13,11 @@ router.get("/signup", (req, res) => {
 
 router.post("/signin", async (req, res) => {
     const { email, password } = req.body;
-    const user = await User.matchPassword(email, password);
+    const token = await User.matchPasswordAndGenerateToken(email, password);
 
-    console.log('User', user);
+    // console.log('token', token);
 
-    return res.redirect("/");
+    return res.cookie('token', token).redirect("/");
 })
 
 router.post("/signup", async (req, res) => {
