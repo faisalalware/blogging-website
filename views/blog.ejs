@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/styles') %>
+    <title>Blog</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+
+        <section class="pt-5 pb-5">
+            <div class="container">
+                <div class="blog d-flex flex-column justify-content-center align-items-center">
+                    <div class="blog-image mb-3">
+                        <img class="img-fluid" src="<%= blog.coverImageURL %>" alt="" width="750px">
+                    </div>
+                    <div class="blog-title mb-3">
+                        <h3>
+                            <%= blog.title %>
+                        </h3>
+                    </div>
+                    <div class="blog-author d-flex flex-row align-items-center justify-content-center mb-3">
+                        <img class="img-fluid" src="<%= blog.createdBy.profileImageURL %>" alt="" width="50px">
+                        <p class="ms-2 mt-2"><%= blog.createdBy.fullName %></p>
+                    </div>
+                    <div class="blog-body">
+                        <p><%= blog.body %></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%- include('./partials/scripts') %>
+</body>
+
+</html>

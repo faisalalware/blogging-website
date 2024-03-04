@@ -5,17 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('./partials/styles') %>
-    <title>Homepage</title>
+        <title>Homepage</title>
 </head>
 
 <body>
     <%- include('./partials/header') %>
 
-    <%= JSON.stringify(user) %>
+        <section class="pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <% blogs.forEach(blog=>{ %>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="<%= blog.coverImageURL %>" class="card-img-top img-fluid" alt="Cover Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= blog.title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= blog.createdBy.fullName %>
+                                    </p>
+                                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </section>
 
-    <!-- <%- include('./partials/footer') %> -->
-    
-    <%- include('./partials/scripts') %>
+        <!-- <%= JSON.stringify(blogs) %> -->
+
+        <!-- <%- include('./partials/footer') %> -->
+
+        <%- include('./partials/scripts') %>
 </body>
 
 </html>
